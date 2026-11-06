@@ -19,6 +19,7 @@ export default function CardPreview({
   const [svgContent, setSvgContent] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
   useEffect(() => {
     let isCancelled = false;
@@ -65,19 +66,33 @@ export default function CardPreview({
 
         {/* Card Canvas Container */}
         <div className="relative bg-slate-900/90 rounded-2xl p-2.5 sm:p-3 border border-amber-500/30 shadow-2xl backdrop-blur-md overflow-hidden">
-          {/* Card Meta Badge */}
+          {/* Card Meta Badge & Fullscreen Trigger */}
           <div className="flex items-center justify-between pb-2 px-1 text-xs text-slate-400 border-b border-slate-800 mb-2.5">
             <div className="flex items-center space-x-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="font-medium text-slate-300">লাইভ প্রিভিউ</span>
             </div>
+
             <div className="flex items-center space-x-2">
               <span className="bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full text-[11px] border border-amber-500/20">
                 {template.category === "exclusive" ? "এক্সক্লুসিভ ফ্রেম" : "ক্লাসিক"}
               </span>
-              <span className="text-[11px] text-slate-400 hidden sm:inline">
-                HD 1500×2400
-              </span>
+
+              <button
+                type="button"
+                onClick={() => setIsFullscreen(true)}
+                className="p-1 hover:bg-slate-800 rounded text-slate-400 hover:text-amber-300 transition"
+                title="পূর্ণ স্ক্রিনে দেখুন"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path d="M13.25 2.5a.75.75 0 0 0 0 1.5h2.44l-3.97 3.97a.75.75 0 1 0 1.06 1.06L16.75 5.06v2.44a.75.75 0 0 0 1.5 0v-4.25a.75.75 0 0 0-.75-.75h-4.25ZM6.75 17.5a.75.75 0 0 0 0-1.5H4.31l3.97-3.97a.75.75 0 0 0-1.06-1.06L3.25 14.94v-2.44a.75.75 0 0 0-1.5 0v4.25c0 .414.336.75.75.75h4.25Z" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -107,6 +122,33 @@ export default function CardPreview({
           </div>
         </div>
       </div>
+
+      {/* FULLSCREEN PREVIEW MODAL */}
+      {isFullscreen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setIsFullscreen(false)}
+        >
+          <div
+            className="relative max-w-lg w-full max-h-[92vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsFullscreen(false)}
+              className="absolute -top-10 right-0 text-slate-300 hover:text-white text-sm font-semibold flex items-center space-x-1 p-1 bg-slate-900/80 rounded-lg px-2 border border-slate-700"
+            >
+              <span>✕ বন্ধ করুন</span>
+            </button>
+            <div
+              className="w-full aspect-[5/8] rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-400/40 bg-slate-950 [&_svg]:w-full [&_svg]:h-full [&_svg]:object-contain"
+              dangerouslySetInnerHTML={{ __html: svgContent }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
