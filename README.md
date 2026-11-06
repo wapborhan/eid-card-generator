@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌙 ঈদ মোবারক কার্ড জেনারেটর (Eid Card Generator)
 
-## Getting Started
+একটি আধুনিক, প্রিমিয়াম এবং আকর্ষণীয় ঈদ কার্ড তৈরির ওয়েব অ্যাপ্লিকেশন। ব্যবহারকারী কোনো প্রকার লগইন বা অথেনটিকেশন ছাড়াই নিজের ছবি ও নাম-পদবি যুক্ত করে এক্সক্লুসিভ ফ্রেমের ঈদ কার্ড ডিজাইন এবং হাই-রেজোলিউশন (HD) ফরম্যাটে ডাউনলোড করতে পারবেন।
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.3.1-black?logo=next.js)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8?logo=tailwind-css)
+![GitHub Pages](https://img.shields.io/badge/GitHub-Pages_Deployed-success?logo=github)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+---
+
+## ✨ প্রধান বৈশিষ্ট্যসমূহ (Key Features)
+
+- 🎨 **এক্সক্লুসিভ ইসলামিক ফ্রেম:** ৫টি প্রিমিয়াম ভেক্টর ফ্রেম (রয়েল গোল্ড মিহরাব, স্যাফায়ার ব্লু, রুবি গোল্ড, আইভরি রোজগোল্ড, সুলতানাত টারকয়েজ) এবং ৫টি ক্লাসিক ফ্রেম।
+- 📸 **ব্যবহারকারীর ছবি যুক্ত করার সুবিধা:** যেকোনো ডিভাইস থেকে নিজের ছবি আপলোড, জুম ইন/আউট এবং X ও Y অক্ষ বরাবর ছবি পজিশন অ্যাডজাস্ট করার কন্ট্রোল।
+- ⚡ **রিয়েল-টাইম লাইভ প্রিভিউ:** বাম পাশের ফর্মে টাইপ করার সাথে সাথে ডান পাশের কার্ডে তাৎক্ষণিক আপডেট।
+- 🖥️ **ফুলস্ক্রিন প্রিভিউ মোড:** তৈরি করা কার্ড পূর্ণ পর্দায় খুঁটিনাটি দেখার জন্য ইন্টারেক্টিভ মডাল।
+- 💾 **আল্ট্রা এইচডি ডাউনলোড (1500×2400):** মোবাইল ও ডেস্কটপ যেকোনো ডিভাইসে সর্বোচ্চ কোয়ালিটিতে সরাসরি PNG/SVG ইমেজ ডাউনলোড।
+- 📲 **সোশ্যাল শেয়ার ও কিউআর কোড:** বন্ধুদের সাথে কাস্টমাইজড কার্ড লিংক শেয়ার এবং ইনস্ট্যান্ট কিউআর কোড জেনারেশন।
+- 🌐 **১০০% ক্লায়েন্ট-সাইড ও অফলাইন-রেডি:** কোনো ডাটাবেজ বা সার্ভার ডিপেন্ডেন্সি নেই; বাংলা ফন্ট সরাসরি Base64 ভেক্টর হিসেবে এমবেডেড।
+
+---
+
+## 🛠️ ব্যবহৃত প্রযুক্তি (Tech Stack)
+
+- **ফ্রেমওয়ার্ক:** [Next.js 15.3.1 (App Router)](https://nextjs.org/)
+- **স্টাইলিং:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **ভেক্টর প্রসেসিং:** SVG DOM Parser + Canvas API
+- **ফন্ট:** স্বত্বাধিকারহীন বাংলা ও ইসলামিক ক্যালিগ্রাফি ফন্ট
+- **হোস্টিং ও CI/CD:** GitHub Actions + GitHub Pages (`output: export`)
+
+---
+
+## 🚀 লোকাল সেটআপ (Local Setup)
+
+রিপোজিটরিটি আপনার লোকাল কম্পিউটারে রান করার নিয়ম:
 
 ```bash
+# ১. রিপোজিটরি ক্লোন করুন
+git clone https://github.com/<your-username>/eid-card-generator.git
+cd eid-card-generator
+
+# ২. ডিপেন্ডেন্সি ইনস্টল করুন
+npm install
+
+# ৩. ডেভেলপমেন্ট সার্ভার চালু করুন
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ব্রাউজারে [http://localhost:3000](http://localhost:3000) ওপেন করে প্রজেক্টটি দেখতে পাবেন।
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 প্রোডাকশন বিল্ড ও এক্সপোর্ট
 
-## Learn More
+```bash
+# স্ট্যাটিক HTML/CSS/JS ফাইলে রূপান্তর করতে:
+npm run build
+```
+বিল্ড সম্পন্ন হলে `./out` ফোল্ডারে সম্পূর্ণ ওয়েবসাইটটি স্ট্যাটিক সাইট হিসেবে তৈরি হবে।
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 লাইসেন্স (License)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+এই প্রজেক্টটি [MIT](LICENSE) লাইসেন্সের আওতাভুক্ত।
