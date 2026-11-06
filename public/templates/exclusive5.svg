@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1600">
+  <defs>
+    <linearGradient id="tealBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021c21" />
+      <stop offset="35%" stop-color="#053e47" />
+      <stop offset="70%" stop-color="#095a67" />
+      <stop offset="100%" stop-color="#011317" />
+    </linearGradient>
+    <linearGradient id="sultanGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8d1" />
+      <stop offset="25%" stop-color="#ebd173" />
+      <stop offset="65%" stop-color="#bf8e22" />
+      <stop offset="100%" stop-color="#fae79d" />
+    </linearGradient>
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#095a67" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#021c21" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="persianStar" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M40,0 L52,28 L80,40 L52,52 L40,80 L28,52 L0,40 L28,28 Z" fill="none" stroke="#ebd173" stroke-width="0.8" opacity="0.09" />
+      <circle cx="40" cy="40" r="14" fill="none" stroke="#ebd173" stroke-width="0.6" opacity="0.08" />
+    </pattern>
+    <filter id="tealGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="1000" height="1600" fill="url(#tealBg)" />
+  <rect width="1000" height="1600" fill="url(#persianStar)" />
+
+  <circle cx="500" cy="380" r="330" fill="url(#tealGlow)" />
+  <circle cx="500" cy="800" r="390" fill="url(#tealGlow)" />
+
+  <!-- Borders -->
+  <rect x="38" y="38" width="924" height="1524" rx="28" fill="none" stroke="url(#sultanGold)" stroke-width="3" opacity="0.85" />
+  <rect x="50" y="50" width="900" height="1500" rx="20" fill="none" stroke="url(#sultanGold)" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.6" />
+
+  <!-- Persian Arabesque Corners -->
+  <g transform="translate(50, 50)">
+    <path d="M0,0 L85,0 Q55,25 25,55 L0,85 Z" fill="url(#sultanGold)" opacity="0.25" />
+    <path d="M0,0 L75,0 Q38,38 0,75 Z" fill="none" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="26" cy="26" r="6" fill="url(#sultanGold)" />
+  </g>
+  <g transform="translate(950, 50) scale(-1, 1)">
+    <path d="M0,0 L85,0 Q55,25 25,55 L0,85 Z" fill="url(#sultanGold)" opacity="0.25" />
+    <path d="M0,0 L75,0 Q38,38 0,75 Z" fill="none" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="26" cy="26" r="6" fill="url(#sultanGold)" />
+  </g>
+  <g transform="translate(50, 1550) scale(1, -1)">
+    <path d="M0,0 L85,0 Q55,25 25,55 L0,85 Z" fill="url(#sultanGold)" opacity="0.25" />
+    <path d="M0,0 L75,0 Q38,38 0,75 Z" fill="none" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="26" cy="26" r="6" fill="url(#sultanGold)" />
+  </g>
+  <g transform="translate(950, 1550) scale(-1, -1)">
+    <path d="M0,0 L85,0 Q55,25 25,55 L0,85 Z" fill="url(#sultanGold)" opacity="0.25" />
+    <path d="M0,0 L75,0 Q38,38 0,75 Z" fill="none" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="26" cy="26" r="6" fill="url(#sultanGold)" />
+  </g>
+
+  <!-- Crown Ornament Top -->
+  <g transform="translate(500, 75)">
+    <path d="M-4,-26 A17,17 0 1 1 -22,-2 A21,21 0 1 0 -4,-26 Z" fill="url(#sultanGold)" filter="url(#tealGlowFilter)" />
+    <polygon points="-8,-13 -5,-8 -10,-10 -12,-6 -11,-11 -16,-14 -11,-14 -9,-19 -7,-14 -2,-14" fill="url(#sultanGold)" />
+    <path d="M-160,20 Q-80,5 0,0 Q80,5 160,20" fill="none" stroke="url(#sultanGold)" stroke-width="2" />
+  </g>
+
+  <!-- Lanterns -->
+  <g transform="translate(140, 90)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="url(#sultanGold)" stroke-width="1.8" />
+    <path d="M-20,120 L20,120 L12,110 L-12,110 Z" fill="url(#sultanGold)" />
+    <path d="M-22,120 L-26,165 L-12,195 L12,195 L26,165 L22,120 Z" fill="#fffbe6" fill-opacity="0.25" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="0" cy="155" r="9" fill="#ffec8b" opacity="0.8" filter="url(#tealGlowFilter)" />
+    <path d="M-12,195 L12,195 L0,210 Z" fill="url(#sultanGold)" />
+    <line x1="0" y1="210" x2="0" y2="238" stroke="url(#sultanGold)" stroke-width="1.8" />
+    <circle cx="0" cy="242" r="3.5" fill="url(#sultanGold)" />
+  </g>
+  <g transform="translate(860, 90)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="url(#sultanGold)" stroke-width="1.8" />
+    <path d="M-20,120 L20,120 L12,110 L-12,110 Z" fill="url(#sultanGold)" />
+    <path d="M-22,120 L-26,165 L-12,195 L12,195 L26,165 L22,120 Z" fill="#fffbe6" fill-opacity="0.25" stroke="url(#sultanGold)" stroke-width="2" />
+    <circle cx="0" cy="155" r="9" fill="#ffec8b" opacity="0.8" filter="url(#tealGlowFilter)" />
+    <path d="M-12,195 L12,195 L0,210 Z" fill="url(#sultanGold)" />
+    <line x1="0" y1="210" x2="0" y2="238" stroke="url(#sultanGold)" stroke-width="1.8" />
+    <circle cx="0" cy="242" r="3.5" fill="url(#sultanGold)" />
+  </g>
+
+  <!-- ================= PHOTO FRAME AREA (CENTERED AT 500, 380, R=165) ================= -->
+  <g id="photoFrameDecoration" transform="translate(500, 380)">
+    <circle cx="0" cy="0" r="190" fill="url(#tealGlow)" opacity="0.6" />
+    <!-- 12-point starburst rim -->
+    <polygon points="0,-185 45,-155 90,-165 105,-120 145,-105 130,-60 165,-35 135,-5 165,25 130,50 145,95 105,110 90,155 45,145 0,175 -45,145 -90,155 -105,110 -145,95 -130,50 -165,25 -135,-5 -165,-35 -130,-60 -145,-105 -105,-120 -90,-165 -45,-155" fill="none" stroke="url(#sultanGold)" stroke-width="1.5" opacity="0.4" />
+    <circle cx="0" cy="0" r="174" fill="none" stroke="url(#sultanGold)" stroke-width="3" stroke-dasharray="4,6" opacity="0.8" />
+    <circle cx="0" cy="0" r="168" fill="none" stroke="url(#sultanGold)" stroke-width="5" />
+    <circle cx="0" cy="0" r="162" fill="none" stroke="#021c21" stroke-width="2" />
+    <circle cx="0" cy="0" r="160" fill="#042a30" opacity="0.5" />
+  </g>
+
+  <!-- Placeholder Medallion (when no photo) -->
+  <g id="photoPlaceholder" transform="translate(500, 380)">
+    <circle cx="0" cy="0" r="158" fill="#032227" stroke="url(#sultanGold)" stroke-width="1.5" />
+    <g transform="scale(1.35)">
+      <polygon points="0,-55 16,-16 55,0 16,16 0,55 -16,16 -55,0 -16,-16" fill="none" stroke="url(#sultanGold)" stroke-width="2" opacity="0.75" />
+      <polygon points="-38,-38 0,-22 38,-38 22,0 38,38 0,22 -38,38 -22,0" fill="none" stroke="url(#sultanGold)" stroke-width="2" opacity="0.75" />
+    </g>
+    <!-- Crescent & Star -->
+    <path d="M7,-21 A28,28 0 1 1 -22,18 A34,34 0 1 0 7,-21 Z" fill="url(#sultanGold)" filter="url(#tealGlowFilter)" />
+    <polygon points="5,-5 8,3 17,3 10,8 13,17 5,12 -3,17 0,8 -7,3 2,3" fill="url(#sultanGold)" />
+  </g>
+
+  <!-- Injected Photo Slot -->
+  <g id="userPhotoSlot"></g>
+
+  <!-- ================= EID GREETING ================= -->
+  <text id="eidTitleText" x="500" y="640" text-anchor="middle" font-family="banglaFont, 'AbuSayed', sans-serif" font-size="52" font-weight="700" fill="url(#sultanGold)" letter-spacing="2" filter="url(#tealGlowFilter)">
+    ঈদ মোবারক
+  </text>
+
+  <!-- Divider -->
+  <g transform="translate(500, 680)">
+    <line x1="-220" y1="0" x2="-35" y2="0" stroke="url(#sultanGold)" stroke-width="1.5" />
+    <line x1="35" y1="0" x2="220" y2="0" stroke="url(#sultanGold)" stroke-width="1.5" />
+    <polygon points="0,-10 10,0 0,10 -10,0" fill="url(#sultanGold)" />
+    <circle cx="-50" cy="0" r="3" fill="url(#sultanGold)" />
+    <circle cx="50" cy="0" r="3" fill="url(#sultanGold)" />
+  </g>
+
+  <!-- Dynamic Content -->
+  <g id="customCardContent"></g>
+
+  <!-- Footer -->
+  <g transform="translate(500, 1495)">
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="url(#sultanGold)" stroke-width="1" opacity="0.5" />
+    <polygon points="0,-5 5,0 0,5 -5,0" fill="url(#sultanGold)" />
+    <circle cx="-50" cy="0" r="2.5" fill="url(#sultanGold)" opacity="0.6" />
+    <circle cx="50" cy="0" r="2.5" fill="url(#sultanGold)" opacity="0.6" />
+  </g>
+</svg>
+

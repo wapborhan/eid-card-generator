@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#031d14" />
+      <stop offset="40%" stop-color="#063224" />
+      <stop offset="70%" stop-color="#094432" />
+      <stop offset="100%" stop-color="#02150e" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2a1" />
+      <stop offset="25%" stop-color="#dfb242" />
+      <stop offset="50%" stop-color="#fdf0a6" />
+      <stop offset="75%" stop-color="#b6831d" />
+      <stop offset="100%" stop-color="#f7da78" />
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#aa7c11" stop-opacity="0" />
+      <stop offset="20%" stop-color="#dfb242" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#fff6b8" stop-opacity="0.95" />
+      <stop offset="80%" stop-color="#dfb242" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#aa7c11" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="glowGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f7da78" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#d4af37" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="islamicPattern" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L50 25 L75 15 L65 40 L90 50 L65 60 L75 85 L50 75 L40 100 L30 75 L5 85 L15 60 L-10 50 L15 40 L5 15 L30 25 Z" fill="none" stroke="#d4af37" stroke-width="0.8" opacity="0.08" />
+      <circle cx="40" cy="40" r="16" fill="none" stroke="#d4af37" stroke-width="0.7" opacity="0.06" />
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+    <filter id="goldGlowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="1600" fill="url(#bgGrad)" />
+  <rect width="1000" height="1600" fill="url(#islamicPattern)" />
+
+  <!-- Ambient Glow Behind Photo Frame and Center -->
+  <circle cx="500" cy="400" r="320" fill="url(#glowGlow)" />
+  <circle cx="500" cy="800" r="400" fill="url(#glowGlow)" />
+
+  <!-- Outer Ornate Royal Frame -->
+  <rect x="36" y="36" width="928" height="1528" rx="28" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.85" />
+  <rect x="48" y="48" width="904" height="1504" rx="20" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.6" />
+
+  <!-- Corner Islamic Arabesque Ornaments -->
+  <!-- Top Left -->
+  <g transform="translate(48, 48)">
+    <path d="M0,0 L80,0 C70,25 60,35 35,60 C25,70 0,80 0,80 Z" fill="url(#goldGrad)" opacity="0.3" />
+    <path d="M0,0 L70,0 C45,15 25,45 0,70 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="24" cy="24" r="6" fill="url(#goldGrad)" />
+    <circle cx="48" cy="14" r="3" fill="url(#goldGrad)" />
+    <circle cx="14" cy="48" r="3" fill="url(#goldGrad)" />
+  </g>
+  <!-- Top Right -->
+  <g transform="translate(952, 48) scale(-1, 1)">
+    <path d="M0,0 L80,0 C70,25 60,35 35,60 C25,70 0,80 0,80 Z" fill="url(#goldGrad)" opacity="0.3" />
+    <path d="M0,0 L70,0 C45,15 25,45 0,70 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="24" cy="24" r="6" fill="url(#goldGrad)" />
+    <circle cx="48" cy="14" r="3" fill="url(#goldGrad)" />
+    <circle cx="14" cy="48" r="3" fill="url(#goldGrad)" />
+  </g>
+  <!-- Bottom Left -->
+  <g transform="translate(48, 1552) scale(1, -1)">
+    <path d="M0,0 L80,0 C70,25 60,35 35,60 C25,70 0,80 0,80 Z" fill="url(#goldGrad)" opacity="0.3" />
+    <path d="M0,0 L70,0 C45,15 25,45 0,70 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="24" cy="24" r="6" fill="url(#goldGrad)" />
+    <circle cx="48" cy="14" r="3" fill="url(#goldGrad)" />
+    <circle cx="14" cy="48" r="3" fill="url(#goldGrad)" />
+  </g>
+  <!-- Bottom Right -->
+  <g transform="translate(952, 1552) scale(-1, -1)">
+    <path d="M0,0 L80,0 C70,25 60,35 35,60 C25,70 0,80 0,80 Z" fill="url(#goldGrad)" opacity="0.3" />
+    <path d="M0,0 L70,0 C45,15 25,45 0,70 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="24" cy="24" r="6" fill="url(#goldGrad)" />
+    <circle cx="48" cy="14" r="3" fill="url(#goldGrad)" />
+    <circle cx="14" cy="48" r="3" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Top Center Mosque Arch Crown & Crescent -->
+  <g transform="translate(500, 75)">
+    <!-- Crescent & Star -->
+    <path d="M-4,-28 A18,18 0 1 1 -24,-2 A22,22 0 1 0 -4,-28 Z" fill="url(#goldGrad)" filter="url(#goldGlowFilter)" />
+    <polygon points="-8,-14 -5,-9 -10,-11 -12,-7 -11,-12 -16,-15 -11,-15 -9,-20 -7,-15 -2,-15" fill="url(#goldGrad)" />
+    <!-- Symmetrical Arch Top Filigree -->
+    <path d="M-180,25 Q-100,5 -30,0 Q-15,-20 0,-32 Q15,-20 30,0 Q100,5 180,25" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <path d="M-140,35 Q-70,20 0,10 Q70,20 140,35" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.7" />
+  </g>
+
+  <!-- Hanging Lanterns Left & Right -->
+  <!-- Left Lantern -->
+  <g transform="translate(135, 90)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="url(#goldGrad)" stroke-width="1.8" />
+    <ellipse cx="0" cy="120" rx="6" ry="3" fill="url(#goldGrad)" />
+    <!-- Lantern Cap -->
+    <path d="M-22,130 L22,130 L14,120 L-14,120 Z" fill="url(#goldGrad)" />
+    <!-- Glass Body -->
+    <path d="M-22,130 L-26,175 L-12,205 L12,205 L26,175 L22,130 Z" fill="#fff9db" fill-opacity="0.25" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="0" cy="165" r="10" fill="#fff4ad" opacity="0.8" filter="url(#goldGlowFilter)" />
+    <!-- Base & Tassel -->
+    <path d="M-14,205 L14,205 L0,220 Z" fill="url(#goldGrad)" />
+    <line x1="0" y1="220" x2="0" y2="248" stroke="url(#goldGrad)" stroke-width="1.8" stroke-dasharray="2,2" />
+    <circle cx="0" cy="252" r="3.5" fill="url(#goldGrad)" />
+  </g>
+  <!-- Right Lantern -->
+  <g transform="translate(865, 90)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="url(#goldGrad)" stroke-width="1.8" />
+    <ellipse cx="0" cy="120" rx="6" ry="3" fill="url(#goldGrad)" />
+    <!-- Lantern Cap -->
+    <path d="M-22,130 L22,130 L14,120 L-14,120 Z" fill="url(#goldGrad)" />
+    <!-- Glass Body -->
+    <path d="M-22,130 L-26,175 L-12,205 L12,205 L26,175 L22,130 Z" fill="#fff9db" fill-opacity="0.25" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="0" cy="165" r="10" fill="#fff4ad" opacity="0.8" filter="url(#goldGlowFilter)" />
+    <!-- Base & Tassel -->
+    <path d="M-14,205 L14,205 L0,220 Z" fill="url(#goldGrad)" />
+    <line x1="0" y1="220" x2="0" y2="248" stroke="url(#goldGrad)" stroke-width="1.8" stroke-dasharray="2,2" />
+    <circle cx="0" cy="252" r="3.5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Secondary Smaller Hanging Stars/Lanterns -->
+  <g transform="translate(230, 85)">
+    <line x1="0" y1="0" x2="0" y2="65" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.7" />
+    <polygon points="0,65 3,73 11,73 5,78 7,86 0,81 -7,86 -5,78 -11,73 -3,73" fill="url(#goldGrad)" opacity="0.9" />
+  </g>
+  <g transform="translate(770, 85)">
+    <line x1="0" y1="0" x2="0" y2="65" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.7" />
+    <polygon points="0,65 3,73 11,73 5,78 7,86 0,81 -7,86 -5,78 -11,73 -3,73" fill="url(#goldGrad)" opacity="0.9" />
+  </g>
+
+  <!-- ================= PHOTO FRAME AREA (CENTERED at Y=380, R=165) ================= -->
+  <!-- Outer Decorative Rosette / Sunburst for Photo -->
+  <g id="photoFrameDecoration" transform="translate(500, 380)">
+    <!-- Glowing Halo -->
+    <circle cx="0" cy="0" r="190" fill="url(#glowGlow)" opacity="0.6" />
+    <!-- Outer Octagram Star Flairs -->
+    <polygon points="0,-195 40,-165 85,-175 95,-130 135,-120 125,-75 160,-45 135,-15 160,15 125,45 135,75 95,130 85,175 40,165 0,195 -40,165 -85,175 -95,130 -135,120 -125,75 -160,45 -135,15 -160,-15 -125,-45 -135,-75 -95,-130 -85,-175 -40,-165" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.45" />
+    <!-- Gold Ring Beads -->
+    <circle cx="0" cy="0" r="176" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="4,6" opacity="0.8" />
+    <circle cx="0" cy="0" r="168" fill="none" stroke="url(#goldGrad)" stroke-width="5" />
+    <circle cx="0" cy="0" r="162" fill="none" stroke="#041f17" stroke-width="2" />
+    <circle cx="0" cy="0" r="160" fill="#062f22" opacity="0.5" />
+  </g>
+
+  <!-- Placeholder Medallion (shown when no user photo is uploaded) -->
+  <g id="photoPlaceholder" transform="translate(500, 380)">
+    <circle cx="0" cy="0" r="158" fill="#042017" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <!-- 8 Point Islamic Star -->
+    <g transform="scale(1.4)">
+      <polygon points="0,-60 18,-18 60,0 18,18 0,60 -18,18 -60,0 -18,-18" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.7" />
+      <polygon points="-42,-42 0,-25 42,-42 25,0 42,42 0,25 -42,42 -25,0" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.7" />
+    </g>
+    <!-- Crescent & Star Emblem in Center -->
+    <path d="M8,-22 A30,30 0 1 1 -24,20 A36,36 0 1 0 8,-22 Z" fill="url(#goldGrad)" filter="url(#goldGlowFilter)" />
+    <polygon points="5,-5 9,4 19,4 11,10 14,20 5,14 -4,20 -1,10 -9,4 1,4" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Injected User Photo will be placed here by CardPreview -->
+  <g id="userPhotoSlot"></g>
+
+  <!-- ================= EID MUBARAK HEADER / TITLE ================= -->
+  <!-- Golden Banner Ribbon Ribbon -->
+  <path d="M220,600 Q500,580 780,600 Q760,650 780,660 Q500,640 220,660 Q240,650 220,600 Z" fill="url(#goldRibbon)" opacity="0.3" />
+  <line x1="240" y1="600" x2="760" y2="600" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.6" />
+  <line x1="240" y1="660" x2="760" y2="660" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.6" />
+
+  <!-- Eid Calligraphy Emblem Text -->
+  <text id="eidTitleText" x="500" y="642" text-anchor="middle" font-family="banglaFont, 'AbuSayed', sans-serif" font-size="52" font-weight="700" fill="url(#goldGrad)" letter-spacing="2" filter="url(#goldGlowFilter)">
+    ঈদ মোবারক
+  </text>
+
+  <!-- Ornate Decorative Floral Divider -->
+  <g transform="translate(500, 685)">
+    <line x1="-220" y1="0" x2="-35" y2="0" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <line x1="35" y1="0" x2="220" y2="0" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <circle cx="-35" cy="0" r="3" fill="url(#goldGrad)" />
+    <circle cx="35" cy="0" r="3" fill="url(#goldGrad)" />
+    <!-- Center Diamond & Flower -->
+    <polygon points="0,-10 10,0 0,10 -10,0" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="3.5" fill="#041f17" />
+  </g>
+
+  <!-- Mosque Skyline Silhouette at Lower Section Background -->
+  <g opacity="0.12" fill="#dfb242" transform="translate(100, 1180)">
+    <!-- Domes & Minarets -->
+    <path d="M50,150 L50,60 Q50,40 60,30 Q70,40 70,60 L70,150 Z" />
+    <path d="M120,150 L120,80 Q160,20 200,80 L200,150 Z" />
+    <path d="M200,150 L200,40 Q215,10 230,40 L230,150 Z" />
+    <path d="M280,150 L280,50 Q360,-20 440,50 L440,150 Z" />
+    <path d="M490,150 L490,40 Q505,10 520,40 L520,150 Z" />
+    <path d="M520,150 L520,80 Q560,20 600,80 L600,150 Z" />
+    <path d="M650,150 L650,60 Q660,40 670,60 L670,150 Z" />
+  </g>
+
+  <!-- ================= CARD CONTENT / CUSTOM TEXT AREA ================= -->
+  <!-- Card text dynamically injected into this group -->
+  <g id="customCardContent"></g>
+
+  <!-- ================= FOOTER ORNAMENT ================= -->
+  <g transform="translate(500, 1490)">
+    <line x1="-160" y1="0" x2="160" y2="0" stroke="url(#goldGrad)" stroke-width="1" opacity="0.6" />
+    <polygon points="0,-6 6,0 0,6 -6,0" fill="url(#goldGrad)" />
+    <circle cx="-60" cy="0" r="2.5" fill="url(#goldGrad)" opacity="0.7" />
+    <circle cx="60" cy="0" r="2.5" fill="url(#goldGrad)" opacity="0.7" />
+  </g>
+</svg>
+

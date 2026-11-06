@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1600">
+  <defs>
+    <linearGradient id="pearlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="40%" stop-color="#f7f1e7" />
+      <stop offset="75%" stop-color="#ece2d0" />
+      <stop offset="100%" stop-color="#fcf9f2" />
+    </linearGradient>
+    <linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d6c6" />
+      <stop offset="30%" stop-color="#d49277" />
+      <stop offset="70%" stop-color="#a86045" />
+      <stop offset="100%" stop-color="#e2ab93" />
+    </linearGradient>
+    <radialGradient id="pearlGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d49277" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#f5d6c6" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#fdfbf7" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="pearlLattice" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M30 0 L60 30 L30 60 L0 30 Z" fill="none" stroke="#d49277" stroke-width="0.8" opacity="0.12" />
+      <circle cx="30" cy="30" r="4" fill="none" stroke="#d49277" stroke-width="0.7" opacity="0.15" />
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="1600" fill="url(#pearlBg)" />
+  <rect width="1000" height="1600" fill="url(#pearlLattice)" />
+
+  <circle cx="500" cy="380" r="320" fill="url(#pearlGlow)" />
+  <circle cx="500" cy="800" r="360" fill="url(#pearlGlow)" />
+
+  <!-- Outer Double Borders -->
+  <rect x="40" y="40" width="920" height="1520" rx="26" fill="none" stroke="url(#roseGold)" stroke-width="2.5" opacity="0.85" />
+  <rect x="52" y="52" width="896" height="1496" rx="18" fill="none" stroke="url(#roseGold)" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.6" />
+
+  <!-- Corner Flourishes -->
+  <g transform="translate(52, 52)">
+    <path d="M0,0 L70,0 C50,20 40,30 20,50 L0,70 Z" fill="url(#roseGold)" opacity="0.15" />
+    <path d="M0,0 L60,0 C30,15 15,30 0,60 Z" fill="none" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="20" cy="20" r="4.5" fill="url(#roseGold)" />
+  </g>
+  <g transform="translate(948, 52) scale(-1, 1)">
+    <path d="M0,0 L70,0 C50,20 40,30 20,50 L0,70 Z" fill="url(#roseGold)" opacity="0.15" />
+    <path d="M0,0 L60,0 C30,15 15,30 0,60 Z" fill="none" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="20" cy="20" r="4.5" fill="url(#roseGold)" />
+  </g>
+  <g transform="translate(52, 1548) scale(1, -1)">
+    <path d="M0,0 L70,0 C50,20 40,30 20,50 L0,70 Z" fill="url(#roseGold)" opacity="0.15" />
+    <path d="M0,0 L60,0 C30,15 15,30 0,60 Z" fill="none" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="20" cy="20" r="4.5" fill="url(#roseGold)" />
+  </g>
+  <g transform="translate(948, 1548) scale(-1, -1)">
+    <path d="M0,0 L70,0 C50,20 40,30 20,50 L0,70 Z" fill="url(#roseGold)" opacity="0.15" />
+    <path d="M0,0 L60,0 C30,15 15,30 0,60 Z" fill="none" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="20" cy="20" r="4.5" fill="url(#roseGold)" />
+  </g>
+
+  <!-- Top Center Crescent & Rose Filigree -->
+  <g transform="translate(500, 75)">
+    <path d="M-3,-25 A16,16 0 1 1 -20, -2 A20,20 0 1 0 -3,-25 Z" fill="url(#roseGold)" />
+    <polygon points="-7,-12 -4,-7 -9,-9 -11,-5 -10,-10 -15,-13 -10,-13 -8,-18 -6,-13 -1,-13" fill="url(#roseGold)" />
+    <path d="M-140,20 Q-70,5 0,0 Q70,5 140,20" fill="none" stroke="url(#roseGold)" stroke-width="1.8" />
+  </g>
+
+  <!-- Hanging Lanterns -->
+  <g transform="translate(145, 90)">
+    <line x1="0" y1="0" x2="0" y2="115" stroke="url(#roseGold)" stroke-width="1.5" />
+    <path d="M-18,115 L18,115 L10,105 L-10,105 Z" fill="url(#roseGold)" />
+    <path d="M-20,115 L-24,160 L-10,190 L10,190 L24,160 L20,115 Z" fill="#fff" fill-opacity="0.4" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="0" cy="152" r="7" fill="#d49277" opacity="0.6" />
+    <path d="M-10,190 L10,190 L0,205 Z" fill="url(#roseGold)" />
+    <line x1="0" y1="205" x2="0" y2="230" stroke="url(#roseGold)" stroke-width="1.5" />
+    <circle cx="0" cy="233" r="3" fill="url(#roseGold)" />
+  </g>
+  <g transform="translate(855, 90)">
+    <line x1="0" y1="0" x2="0" y2="115" stroke="url(#roseGold)" stroke-width="1.5" />
+    <path d="M-18,115 L18,115 L10,105 L-10,105 Z" fill="url(#roseGold)" />
+    <path d="M-20,115 L-24,160 L-10,190 L10,190 L24,160 L20,115 Z" fill="#fff" fill-opacity="0.4" stroke="url(#roseGold)" stroke-width="1.8" />
+    <circle cx="0" cy="152" r="7" fill="#d49277" opacity="0.6" />
+    <path d="M-10,190 L10,190 L0,205 Z" fill="url(#roseGold)" />
+    <line x1="0" y1="205" x2="0" y2="230" stroke="url(#roseGold)" stroke-width="1.5" />
+    <circle cx="0" cy="233" r="3" fill="url(#roseGold)" />
+  </g>
+
+  <!-- ================= PHOTO FRAME (CENTERED AT 500, 380, R=165) ================= -->
+  <g id="photoFrameDecoration" transform="translate(500, 380)">
+    <circle cx="0" cy="0" r="185" fill="url(#pearlGlow)" opacity="0.5" />
+    <!-- Rose Gold Beaded Ring -->
+    <circle cx="0" cy="0" r="175" fill="none" stroke="url(#roseGold)" stroke-width="2.5" stroke-dasharray="4,5" opacity="0.75" />
+    <circle cx="0" cy="0" r="168" fill="none" stroke="url(#roseGold)" stroke-width="4" />
+    <circle cx="0" cy="0" r="162" fill="none" stroke="#fcf9f2" stroke-width="2" />
+    <circle cx="0" cy="0" r="160" fill="#f4ebd9" opacity="0.4" />
+  </g>
+
+  <!-- Placeholder Medallion (when no photo) -->
+  <g id="photoPlaceholder" transform="translate(500, 380)">
+    <circle cx="0" cy="0" r="158" fill="#fdfaf4" stroke="url(#roseGold)" stroke-width="1.5" />
+    <g transform="scale(1.3)">
+      <polygon points="0,-50 15,-15 50,0 15,15 0,50 -15,15 -50,0 -15,-15" fill="none" stroke="url(#roseGold)" stroke-width="1.8" opacity="0.7" />
+      <polygon points="-35,-35 0,-20 35,-35 20,0 35,35 0,20 -35,35 -20,0" fill="none" stroke="url(#roseGold)" stroke-width="1.8" opacity="0.7" />
+    </g>
+    <!-- Crescent & Star -->
+    <path d="M6,-20 A26,26 0 1 1 -20,16 A32,32 0 1 0 6,-20 Z" fill="url(#roseGold)" />
+    <polygon points="5,-5 8,2 16,2 10,7 12,15 5,10 -2,15 0,7 -6,2 2,2" fill="url(#roseGold)" />
+  </g>
+
+  <!-- Injected Photo Slot -->
+  <g id="userPhotoSlot"></g>
+
+  <!-- ================= EID GREETING ================= -->
+  <text id="eidTitleText" x="500" y="640" text-anchor="middle" font-family="banglaFont, 'AbuSayed', sans-serif" font-size="52" font-weight="700" fill="url(#roseGold)" letter-spacing="2">
+    ঈদ মোবারক
+  </text>
+
+  <!-- Divider -->
+  <g transform="translate(500, 680)">
+    <line x1="-220" y1="0" x2="-35" y2="0" stroke="url(#roseGold)" stroke-width="1.5" />
+    <line x1="35" y1="0" x2="220" y2="0" stroke="url(#roseGold)" stroke-width="1.5" />
+    <polygon points="0,-10 10,0 0,10 -10,0" fill="url(#roseGold)" />
+    <circle cx="-50" cy="0" r="3" fill="url(#roseGold)" />
+    <circle cx="50" cy="0" r="3" fill="url(#roseGold)" />
+  </g>
+
+  <!-- Dynamic Text Content -->
+  <g id="customCardContent"></g>
+
+  <!-- Footer -->
+  <g transform="translate(500, 1495)">
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="url(#roseGold)" stroke-width="1" opacity="0.5" />
+    <polygon points="0,-5 5,0 0,5 -5,0" fill="url(#roseGold)" />
+    <circle cx="-50" cy="0" r="2.5" fill="url(#roseGold)" opacity="0.6" />
+    <circle cx="50" cy="0" r="2.5" fill="url(#roseGold)" opacity="0.6" />
+  </g>
+</svg>
+

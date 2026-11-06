@@ -1,163 +1,112 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Template } from "../lib/templates";
+import { CardState, processCardSvg } from "../lib/svgProcessor";
 
 interface CardPreviewProps {
   template: Template;
-  name: string;
-  note: string;
+  cardState: CardState;
   onSvgGenerated: (svgContent: string) => void;
 }
 
 export default function CardPreview({
   template,
-  name,
-  note,
+  cardState,
   onSvgGenerated,
 }: CardPreviewProps) {
-  const svgContainerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [svgContent, setSvgContent] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchAndProcessSvg = async () => {
+    let isCancelled = false;
+
+    const renderCard = async () => {
+      setIsLoading(true);
+      setLoadError(null);
       try {
         const response = await fetch(template.path);
-        if (!response.ok) throw new Error("Failed to fetch SVG");
-        const svgText = await response.text();
+        if (!response.ok) {
+          throw new Error(`Failed to fetch template: ${response.statusText}`);
+        }
+        const svgRaw = await response.text();
 
-        // Process the SVG with name and note
-        const processedSvg = await processSvg(
-          svgText,
-          name,
-          note,
-          template.color
-        );
-        setSvgContent(processedSvg);
-        onSvgGenerated(processedSvg); // Call the callback with the generated SVG
-      } catch (error) {
-        console.error("Error loading SVG:", error);
-        setSvgContent(
-          '<div class="text-red-500 p-4">Error loading template</div>'
-        );
+        const processed = await processCardSvg(svgRaw, template, cardState);
+
+        if (!isCancelled) {
+          setSvgContent(processed);
+          onSvgGenerated(processed);
+          setIsLoading(false);
+        }
+      } catch (err: unknown) {
+        console.error("CardPreview render error:", err);
+        if (!isCancelled) {
+          setLoadError("টেমপ্লেট লোড করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।");
+          setIsLoading(false);
+        }
       }
     };
 
-    fetchAndProcessSvg();
-  }, [template, name, note, onSvgGenerated]);
+    renderCard();
 
-  const processSvg = async (
-    svgString: string,
-    name: string,
-    note: string,
-    color: string
-  ): Promise<string> => {
-    try {
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(svgString, "image/svg+xml");
-      const svgElement = svgDoc.querySelector("svg");
-
-      if (!svgElement) {
-        throw new Error("Invalid SVG content");
-      }
-
-      // Clear previous custom text if any
-      const existingTexts = svgElement.querySelectorAll(".custom-text");
-      existingTexts.forEach((text) => text.remove());
-
-      // Get dimensions
-      let width = 500,
-        height = 800;
-      const viewBox = svgElement.getAttribute("viewBox");
-      if (viewBox) {
-        const [, , w, h] = viewBox.split(/\s+|,/).map(Number);
-        if (w && h) {
-          width = w;
-          height = h;
-        }
-      }
-
-      // Add name if exists
-      if (name.trim()) {
-        const nameYPosition = height - height * 0.05;
-        const nameFontSize = height * 0.037;
-        const nameElement = svgDoc.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "text"
-        );
-
-        nameElement.setAttribute("x", (width / 2).toString());
-        nameElement.setAttribute("y", nameYPosition.toFixed(2));
-        nameElement.setAttribute("text-anchor", "middle");
-        nameElement.setAttribute("font-family", "banglaFont");
-        nameElement.setAttribute("font-size", nameFontSize.toFixed(2));
-        nameElement.setAttribute("fill", color);
-        nameElement.setAttribute("font-weight", "500");
-        nameElement.textContent = name;
-        nameElement.classList.add("custom-text");
-
-        svgElement.appendChild(nameElement);
-      }
-
-      // Add note if exists
-      if (note.trim()) {
-        const noteFontSize = height * 0.035;
-        const noteLines = note.split("\n");
-        const nameYPosition = height - height * 0.05;
-        const noteYStart =
-          nameYPosition - noteLines.length * noteFontSize * 1.2 - height * 0.05;
-
-        noteLines.forEach((textLine, index) => {
-          const noteElement = svgDoc.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "text"
-          );
-          const lineYPosition = noteYStart + index * noteFontSize * 1.2;
-
-          noteElement.setAttribute("x", (width / 2).toString());
-          noteElement.setAttribute("y", lineYPosition.toFixed(2));
-          noteElement.setAttribute("text-anchor", "middle");
-          noteElement.setAttribute("font-family", "banglaFont");
-          noteElement.setAttribute("font-size", noteFontSize.toFixed(2));
-          noteElement.setAttribute("fill", color);
-          noteElement.setAttribute("font-weight", "400");
-          noteElement.textContent = textLine;
-          noteElement.classList.add("custom-text");
-
-          svgElement.appendChild(noteElement);
-        });
-      }
-
-      // Add font-face if not exists
-      if (!svgDoc.querySelector("style")) {
-        const styleElement = svgDoc.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "style"
-        );
-        styleElement.textContent = `
-          @font-face {
-            font-family: 'banglaFont';
-            src: url('/assets/banglaFont.woff2') format('woff2');
-          }
-        `;
-        svgElement.insertBefore(styleElement, svgElement.firstChild);
-      }
-
-      // Serialize back to string
-      const serializer = new XMLSerializer();
-      return serializer.serializeToString(svgDoc.documentElement);
-    } catch (error) {
-      console.error("Error processing SVG:", error);
-      throw error;
-    }
-  };
+    return () => {
+      isCancelled = true;
+    };
+  }, [template, cardState, onSvgGenerated]);
 
   return (
-    <div className="w-full relative " id="cardPreviewContainer">
-      <div
-        ref={svgContainerRef}
-        id="svgContainer"
-        className="w-[85%] h-full shadow-xl banglaFont"
-        dangerouslySetInnerHTML={{ __html: svgContent }}
-      />
+    <div className="w-full flex flex-col items-center justify-center">
+      {/* Frame wrapper with gold ambient glow */}
+      <div className="relative w-full max-w-[440px] group transition-all duration-300">
+        {/* Ambient Back Glow */}
+        <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500/25 via-emerald-500/20 to-amber-500/25 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500" />
+
+        {/* Card Canvas Container */}
+        <div className="relative bg-slate-900/90 rounded-2xl p-2.5 sm:p-3 border border-amber-500/30 shadow-2xl backdrop-blur-md overflow-hidden">
+          {/* Card Meta Badge */}
+          <div className="flex items-center justify-between pb-2 px-1 text-xs text-slate-400 border-b border-slate-800 mb-2.5">
+            <div className="flex items-center space-x-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-medium text-slate-300">লাইভ প্রিভিউ</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full text-[11px] border border-amber-500/20">
+                {template.category === "exclusive" ? "এক্সক্লুসিভ ফ্রেম" : "ক্লাসিক"}
+              </span>
+              <span className="text-[11px] text-slate-400 hidden sm:inline">
+                HD 1500×2400
+              </span>
+            </div>
+          </div>
+
+          {/* SVG Card Container */}
+          <div
+            ref={containerRef}
+            id="cardPreviewContainer"
+            className="w-full aspect-[5/8] rounded-xl overflow-hidden shadow-inner bg-slate-950 flex items-center justify-center relative eid-card-svg-wrapper"
+          >
+            {isLoading && !svgContent && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/80 z-10 space-y-3">
+                <div className="w-8 h-8 border-3 border-amber-400 border-t-transparent rounded-full animate-spin" />
+                <p className="text-xs text-amber-200">কার্ড সাজানো হচ্ছে...</p>
+              </div>
+            )}
+
+            {loadError ? (
+              <div className="p-6 text-center text-red-400 text-sm">
+                <p>{loadError}</p>
+              </div>
+            ) : (
+              <div
+                className="w-full h-full flex items-center justify-center [&_svg]:w-full [&_svg]:h-full [&_svg]:max-w-full [&_svg]:max-h-full [&_svg]:block [&_svg]:object-contain"
+                dangerouslySetInnerHTML={{ __html: svgContent }}
+              />
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
